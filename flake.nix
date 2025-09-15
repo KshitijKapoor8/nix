@@ -14,7 +14,7 @@
     mkSystem = { hostname, system, username, os }:
       nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit inputs hostname username; };
+        specialArgs = { inherit inputs hostname username os; };
         modules = [
           ./modules/common/nix.nix
           ./hosts/${os}/${hostname}/hardware-configuration.nix
@@ -25,6 +25,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${username} = import ./users/${username}/home.nix;
+            home-manager.extraSpecialArgs = { inherit inputs hostname username os; };
           }
         ];
       };
