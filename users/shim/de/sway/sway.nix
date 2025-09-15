@@ -5,6 +5,8 @@ let
     mod = "Mod4";
     term = "ghostty";
     menu = "wofi --show drun";
+    browser = "firefox";
+    files = "nautilus";
 in
 {
     wayland.windowManager.sway = {
@@ -20,8 +22,13 @@ in
             input."type:keyboard".xkb_layout = "us";
 
             keybindings = {
+                # execs
                 "${mod}+t" = "exec ${term}";
+                "${mod}+b" = "exec ${browser}";
+                "${mod}+e" = "exec ${nautilus}";
+
                 "${mod}+space" = "exec ${menu}";
+
                 "${mod}+shift+c" = "reload";
                 "${mod}+shift+e" = "exec swaymsg exit";
             };

@@ -20,5 +20,6 @@
         python3
         cargo
         wofi
+        nautilus
     ];
 }

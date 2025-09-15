@@ -17,7 +17,7 @@
         enable = true;
         settings.default_session = {
             command = "dbus-run-session sway";
-            user = "greeter";
+            user = "shim";
         };
     };
 
