@@ -11,14 +11,14 @@
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
-    mkSystem = { hostname, system, username }:
+    mkSystem = { hostname, system, username, os }:
       nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = { inherit inputs hostname username; };
         modules = [
           ./modules/common/nix.nix
-          ./hosts/${hostname}/hardware-configuration.nix
-          ./hosts/${hostname}/configuration.nix
+          ./hosts/${os}/${hostname}/hardware-configuration.nix
+          ./hosts/${os}/${hostname}/configuration.nix
 
           home-manager.nixosModules.home-manager
           {
@@ -30,7 +30,7 @@
       };
   in {
     nixosConfigurations = {
-      paddington = mkSystem { hostname = "paddington"; system = "x86_64-linux"; username = "shim"; };
+      paddington = mkSystem { hostname = "paddington"; system = "x86_64-linux"; username = "shim"; os = "linux"; };
       # add more hosts here later
     };
   };

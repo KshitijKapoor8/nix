@@ -1,19 +1,24 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    fzf
-    eza
-    bat
-    tree
-    htop
-    jq
-    curl
-    wget
-    neofetch
-    fastfetch
-    zoxide
-    sesh
-    thefuck
-    npm
-  ];
+    home.packages = with pkgs; [
+        ripgrep 
+        fd
+        fzf
+        eza
+        bat
+        tree
+        htop
+        jq
+        curl
+        wget
+        neofetch
+        fastfetch
+        zoxide
+        sesh
+        thefuck
+        nodejs
+        python3
+        cargo
+        wofi
+    ];
 }
