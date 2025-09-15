@@ -21,5 +21,6 @@
         cargo
         wofi
         nautilus
+        discord
     ];
 }

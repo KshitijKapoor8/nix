@@ -1,4 +1,7 @@
 { pkgs, lib, ... }:
+let 
+    tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+in
 {
     programs.sway = {
         enable = true;
@@ -16,8 +19,8 @@
     services.greetd = {
         enable = true;
         settings.default_session = {
-            command = "dbus-run-session sway";
-            user = "shim";
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd sway";
+            user = "greeter";
         };
     };
 
