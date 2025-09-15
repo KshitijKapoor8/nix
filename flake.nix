@@ -1,0 +1,37 @@
+{
+  description = "NixOS + Home Manager flake";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  let
+    mkSystem = { hostname, system, username }:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs hostname username; };
+        modules = [
+          ./modules/common/nix.nix
+          ./hosts/${hostname}/hardware-configuration.nix
+          ./hosts/${hostname}/configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = import ./users/${username}/home.nix;
+          }
+        ];
+      };
+  in {
+    nixosConfigurations = {
+      paddington = mkSystem { hostname = "paddington"; system = "x86_64-linux"; username = "shim"; };
+      # add more hosts here later
+    };
+  };
+}
