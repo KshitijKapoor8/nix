@@ -5,7 +5,7 @@ let
     mod = "Mod4";
     term = "ghostty";
     menu = "wofi --show drun";
-    browser = "firefox";
+    browser = "zen-twilight";
     files = "nautilus";
 
     left = "h";
@@ -14,37 +14,13 @@ let
     right = "l";
 in
 {
+    imports = [ ./swayidle.nix ];
+
     wayland.windowManager.sway = {
         enable = isLinux;
         package = pkgs.swayfx;
 
         checkConfig = false;
-
-        extraConfig = ''
-            corner_radius 10
-
-            blur on
-            blur_xray off
-            blur_passes 2
-            blur_radius 5
-
-            shadows off
-            shadows_on_csd off
-            shadow_blur_radius 20
-            shadow_color #0000007F
-
-            default_dim_inactive 0.0
-            dim_inactive_colors.unfocused #000000FF
-            dim_inactive_colors.urgent    #900000FF
-
-            scratchpad_minimize disable
-
-            # Wallpaper
-            output * bg ~/nix/wallpapers/city.jpeg fill
-
-            # Include extra drop-ins, if any
-            include /etc/sway/config.d/*
-        '';
 
         config = {
             modifier = mod;
@@ -57,6 +33,7 @@ in
                 "${mod}+t" = "exec ${term}";
                 "${mod}+b" = "exec ${browser}";
                 "${mod}+e" = "exec ${files}";
+                "${mod}+p" = "exec grim -g \"$(slurp)\" - | wl-copy";
                 "${mod}+q" = "kill";
 
                 # Window management
@@ -117,5 +94,45 @@ in
             } else { };
 
         };
+
+        extraConfig = ''
+            corner_radius 10
+
+            blur off
+            blur_xray off
+            blur_passes 2
+            blur_radius 5
+
+            shadows off
+            shadows_on_csd off
+            shadow_blur_radius 20
+            shadow_color #0000007F
+
+            default_dim_inactive 0.0
+            dim_inactive_colors.unfocused #000000FF
+            dim_inactive_colors.urgent    #900000FF
+
+            scratchpad_minimize disable
+
+            # Wallpaper
+            output * bg ~/nix/wallpapers/city.jpeg fill
+
+            # Include extra drop-ins, if any
+            include /etc/sway/config.d/*
+
+            workspace 1 output DP-1
+            workspace 2 output DP-3
+            workspace 3 output DP-1
+            workspace 4 output DP-3
+            workspace 5 output DP-1
+            workspace 6 output DP-3
+            workspace 7 output DP-1
+            workspace 8 output DP-3
+            workspace 9 output DP-1
+            workspace 10 output DP-3
+
+            exec_always swaymsg 'focus output DP-1'
+            exec_always swaymsg 'workspace number 1'
+        '';
     };
 }
