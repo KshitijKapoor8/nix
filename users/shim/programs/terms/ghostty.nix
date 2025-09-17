@@ -3,11 +3,11 @@
     programs.ghostty = {
         enable = true;
         settings = {
-            theme = "tokyonight";
-            font-size = 11;
+            theme = "catppuccin-mocha";
+            font-size = 12;
             window-decoration = true;
             # copy-on-select = clipboard;
-            background-opacity = 0.7;
+            background-opacity = 0.6;
         };
     };
 }

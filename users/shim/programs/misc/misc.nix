@@ -25,5 +25,13 @@
         xdg-desktop-portal
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
+        docker-compose
+        lazydocker
+        docker-buildx
+        spotify
+        zig
+        unzip
+        clang-tools
+        man-pages
     ];
 }

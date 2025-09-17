@@ -22,11 +22,67 @@ in
 
         checkConfig = false;
 
+        extraConfig = ''
+            corner_radius 10
+
+            blur off
+            blur_xray off
+            blur_passes 2
+            blur_radius 5
+
+            shadows off
+            shadows_on_csd off
+            shadow_blur_radius 20
+            shadow_color #0000007F
+
+            default_dim_inactive 0.0
+            dim_inactive_colors.unfocused #000000FF
+            dim_inactive_colors.urgent    #900000FF
+
+            scratchpad_minimize disable
+
+            # Wallpaper
+            output * bg ~/nix/wallpapers/city.jpeg fill
+
+            # Include extra drop-ins, if any
+            include /etc/sway/config.d/*
+
+            workspace 1 output DP-1
+            workspace 2 output DP-3
+            workspace 3 output DP-1
+            workspace 4 output DP-3
+            workspace 5 output DP-1
+            workspace 6 output DP-3
+            workspace 7 output DP-1
+            workspace 8 output DP-3
+            workspace 9 output DP-1
+            workspace 10 output DP-3
+
+            default_border none
+            default_floating_border none
+
+            default_border pixel 2
+            default_floating_border pixel 2
+
+            exec_always swaymsg 'focus output DP-1'
+            exec_always swaymsg 'workspace number 1'
+        '';
+
         config = {
             modifier = mod;
             terminal = term;
 
-            input."type:keyboard".xkb_layout = "us";
+            input = {
+                "type:keyboard" = {
+                    xkb_layout = "us";
+                };
+                "type:pointer" = {
+                    accel_profile = "flat";
+                    pointer_accel = "-0.3";
+                };
+            };
+
+            defaultWorkspace = "workspace 1";
 
             keybindings = {
                 # execs
@@ -95,44 +151,5 @@ in
 
         };
 
-        extraConfig = ''
-            corner_radius 10
-
-            blur off
-            blur_xray off
-            blur_passes 2
-            blur_radius 5
-
-            shadows off
-            shadows_on_csd off
-            shadow_blur_radius 20
-            shadow_color #0000007F
-
-            default_dim_inactive 0.0
-            dim_inactive_colors.unfocused #000000FF
-            dim_inactive_colors.urgent    #900000FF
-
-            scratchpad_minimize disable
-
-            # Wallpaper
-            output * bg ~/nix/wallpapers/city.jpeg fill
-
-            # Include extra drop-ins, if any
-            include /etc/sway/config.d/*
-
-            workspace 1 output DP-1
-            workspace 2 output DP-3
-            workspace 3 output DP-1
-            workspace 4 output DP-3
-            workspace 5 output DP-1
-            workspace 6 output DP-3
-            workspace 7 output DP-1
-            workspace 8 output DP-3
-            workspace 9 output DP-1
-            workspace 10 output DP-3
-
-            exec_always swaymsg 'focus output DP-1'
-            exec_always swaymsg 'workspace number 1'
-        '';
     };
 }

@@ -23,6 +23,8 @@
         ./programs/terms/term.nix
         ./programs/starship/starship.nix
         ./programs/nvim/nvim.nix
+        ./programs/browsers
+
         ./de/sway/sway.nix
     ];
 }
