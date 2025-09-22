@@ -64,6 +64,7 @@ alias sp='spotify_player'
 alias mt='make run-term'
 alias ..="cd .."
 alias n="sudo nixos-rebuild switch --flake ~/nix#paddington"
+alias nd="nix develop --command $SHELL -i"
 
 # Shell integrations
 eval "$(fzf --zsh)"

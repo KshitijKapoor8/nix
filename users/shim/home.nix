@@ -26,6 +26,7 @@
         ./programs/browsers
 
         ./de/sway/sway.nix
+        ./de/hyprland/hyprland.nix
     ];
 }
 

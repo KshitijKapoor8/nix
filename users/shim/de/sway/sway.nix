@@ -73,6 +73,10 @@ in
             terminal = term;
 
             input = {
+                "*" = {
+                    repeat_delay = "180";
+                    repeat_rate = "40";
+                };
                 "type:keyboard" = {
                     xkb_layout = "us";
                 };

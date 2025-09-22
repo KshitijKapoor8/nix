@@ -33,5 +33,8 @@
         unzip
         clang-tools
         man-pages
+        pavucontrol
+        scons
+        godot_4
     ];
 }
