@@ -65,11 +65,10 @@ alias mt='make run-term'
 alias ..="cd .."
 alias n="sudo nixos-rebuild switch --flake ~/nix#paddington"
 alias nd="nix develop --command $SHELL -i"
+alias nl="nix run ."
 
 # Shell integrations
 eval "$(fzf --zsh)"
-
-eval $(thefuck --alias)
 
 export STM32CubeMX_PATH=/Applications/STMicroelectronics/STM32CubeMX.app/Contents/Resources
 

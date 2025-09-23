@@ -15,6 +15,6 @@ let
 in
 {
     wayland.windowManager.hyprland = {
-        enable = isLinux;
+        enable = true;
     };
 }

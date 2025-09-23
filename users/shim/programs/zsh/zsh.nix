@@ -1,5 +1,6 @@
 { ... }: {
-  programs.zsh.enable = true;
-
-  home.file.".zshrc".source = ./.zshrc;
+  programs.zsh = {
+    enable = true;
+    initExtra = builtins.readFile ./.zshrc;
+  };
 }

@@ -5,13 +5,10 @@
 -- old keymaps deletion
 vim.keymap.del("n", "<leader>l", {})
 vim.keymap.del("n", "<leader>qq", {})
-vim.keymap.del("n", "<leader>cm", {})
 
 -- old keymaps reset
 vim.keymap.set("n", "<leader>ol", "<CMD>Lazy<CR>", { desc = "Open Lazy Menu" })
-vim.keymap.set("n", "<leader>om", "<CMD>Mason<CR>", { desc = "Open Mason Menu" })
 vim.keymap.set("n", "<leader>q", "<CMD>qall!<CR>", { desc = "Open Lazy Menu" })
-
 vim.keymap.set("n", "<leader>h", ":vsp<CR>", { desc = "Split horizontally" })
 vim.keymap.set("n", "<leader>v", ":split<CR>", { desc = "Split vertically" })
 

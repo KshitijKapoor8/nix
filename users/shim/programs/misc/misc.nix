@@ -15,7 +15,6 @@
         fastfetch
         zoxide
         sesh
-        thefuck
         nodejs
         python3
         cargo
@@ -36,5 +35,6 @@
         pavucontrol
         scons
         godot_4
+        rustc
     ];
 }

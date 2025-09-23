@@ -1,32 +1,39 @@
-{ config, pkgs, lib, hostname, username, ... }:
 {
-    home.username = "shim";
-    home.homeDirectory = "/home/shim";
+  config,
+  pkgs,
+  lib,
+  hostname,
+  username,
+  inputs,
+  ...
+}: {
+  home.username = "shim";
+  home.homeDirectory = "/home/shim";
 
-    programs.home-manager.enable = true;
+  programs.home-manager.enable = true;
 
-    home.packages = with pkgs; [ ];
+  home.packages = with pkgs; [
+    inputs.nixvim.packages.${pkgs.stdenv.system}.default
+  ];
 
-    home.stateVersion = "24.11";
+  home.stateVersion = "24.11";
 
-    programs.git = {
-        enable = true;
-        userName = "KshitijKapoor8";
-        userEmail = "kshitijkapoor8@gmail.com";
-    };
+  programs.git = {
+    enable = true;
+    userName = "KshitijKapoor8";
+    userEmail = "kshitijkapoor8@gmail.com";
+  };
 
-    programs.neovim.enable = true;
+  imports = [
+    ./programs/zsh/zsh.nix
+    ./programs/misc/misc.nix
+    ./programs/terms/term.nix
+    ./programs/starship/starship.nix
+    # ./programs/nvim/nvim.nix
+    # ./programs/nvim/nixvim.nix
+    ./programs/browsers
 
-    imports = [
-        ./programs/zsh/zsh.nix
-        ./programs/misc/misc.nix
-        ./programs/terms/term.nix
-        ./programs/starship/starship.nix
-        ./programs/nvim/nvim.nix
-        ./programs/browsers
-
-        ./de/sway/sway.nix
-        ./de/hyprland/hyprland.nix
-    ];
+    ./de/sway/sway.nix
+    ./de/hyprland/hyprland.nix
+  ];
 }
-

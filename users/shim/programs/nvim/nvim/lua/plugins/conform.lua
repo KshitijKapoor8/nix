@@ -2,9 +2,10 @@ return {
   {
     "stevearc/conform.nvim",
     formatters_by_ft = {
-      c = {'clang-format' },
-      cpp = {'clang-format' },
-    },
+        c = {'clang-format' },
+        cpp = {'clang-format' },
+        rust = { 'rustfmt' },
+        sh = { 'shfmt' }, },
     format_on_save = nil,
     format_after_save = nil,
     autoformat = false,
