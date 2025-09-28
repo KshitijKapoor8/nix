@@ -1,32 +1,35 @@
 { pkgs, lib, ... }:
-let 
-    tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+let
+  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
 in
 {
-    programs.sway = {
-        enable = true;
-        package = pkgs.swayfx;
+  programs.sway = {
+    enable = true;
+    package = pkgs.swayfx;
 
-        wrapperFeatures.gtk = true;
+    wrapperFeatures.gtk = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd hyprland";
+      user = "greeter";
     };
+  };
 
-    xdg.portal = { 
-        enable = true;
-        wlr.enable = true;
-        extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    };
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+    grim
+    slurp
+    jq
+  ];
 
-    services.greetd = {
-        enable = true;
-        settings.default_session = {
-            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --cmd sway";
-            user = "greeter";
-        };
-    };
-
-    environment.systemPackages = with pkgs; [
-        wl-clipboard grim slurp jq
-    ];
-
-    security.polkit.enable = true;
+  security.polkit.enable = true;
 }

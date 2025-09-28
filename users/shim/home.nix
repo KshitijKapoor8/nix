@@ -6,7 +6,8 @@
   username,
   inputs,
   ...
-}: {
+}:
+{
   home.username = "shim";
   home.homeDirectory = "/home/shim";
 
@@ -33,6 +34,7 @@
     # ./programs/nvim/nixvim.nix
     ./programs/browsers
 
+    ./de/waybar
     ./de/sway/sway.nix
     ./de/hyprland/hyprland.nix
   ];

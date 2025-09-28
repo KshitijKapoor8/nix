@@ -17,6 +17,21 @@
       url = "github:KshitijKapoor8/vim-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.nixpkgs.follows = "hyprland";
+    };
+
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -46,9 +61,10 @@
               ;
           };
           modules = [
-            ./modules/common/nix.nix
+            ./modules/common
             ./hosts/${os}/${hostname}/hardware-configuration.nix
             ./hosts/${os}/${hostname}/configuration.nix
+            inputs.stylix.nixosModules.stylix
 
             home-manager.nixosModules.home-manager
             {
@@ -81,6 +97,12 @@
       nixosConfigurations = {
         paddington = mkSystem {
           hostname = "paddington";
+          system = "x86_64-linux";
+          username = "shim";
+          os = "linux";
+        };
+        nixos = mkSystem {
+          hostname = "nixos";
           system = "x86_64-linux";
           username = "shim";
           os = "linux";

@@ -1,6 +1,11 @@
-{ ... }: {
+{ pkgs, hostname, ... }:
+let
+  isFrame = hostname == "nixos";
+in
+{
   programs.zsh = {
     enable = true;
-    initExtra = builtins.readFile ./.zshrc;
+    initExtra =
+      if isFrame then builtins.readFile ./.zshrc-nixos else builtins.readFile ./.zshrc-paddington;
   };
 }
