@@ -45,14 +45,14 @@ in
       input = {
         kb_layout = "us";
         follow_mouse = 1;
+        kb_options = "altwin:swap_alt_win";
+        repeat_rate = 60;
+        repeat_delay = 180;
         touchpad = {
           natural_scroll = "yes";
           disable_while_typing = true;
           drag_lock = true;
         };
-        kb_options = "altwin:swap_alt_win";
-        repeat_rate = 90;
-        repeat_delay = 150;
 
         sensitivity = if hostname == "paddington" then -0.4 else 0;
       }
@@ -61,10 +61,23 @@ in
         kb_options = "altwin:swap_alt_win";
         repeat_rate = 55;
         repeat_delay = 180;
+      }
+      // lib.optionalAttrs (hostname == "nixos") {
+        touchpad = {
+          natural_scroll = "yes";
+          disable_while_typing = true;
+          drag_lock = true;
+        };
       };
 
       animations = {
         enabled = "no";
+      };
+
+      decoration = {
+        dim_inactive = true;
+        inactive_opacity = 0.9;
+        rounding = 3;
       };
 
       misc = {
