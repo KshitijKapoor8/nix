@@ -37,5 +37,9 @@
     rustc
     esp-generate
     brightnessctl
+    cava
+    git-lfs
+    rustfmt
+    obs-studio
   ];
 }

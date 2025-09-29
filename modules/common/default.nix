@@ -20,6 +20,16 @@
   };
   users.defaultUserShell = pkgs.zsh;
 
+  fonts = {
+    fontconfig.enable = true;
+    packages = with pkgs; [
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
+      font-awesome
+      material-design-icons
+    ];
+  };
+
   imports = [ ./stylix.nix ];
 
 }
