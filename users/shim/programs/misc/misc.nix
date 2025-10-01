@@ -44,5 +44,8 @@
     widevine-cdm
     openssh
     rsync
+    code-cursor
+    minicom
+    wl-clipboard
   ];
 }
