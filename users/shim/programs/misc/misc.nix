@@ -41,5 +41,8 @@
     git-lfs
     rustfmt
     obs-studio
+    widevine-cdm
+    openssh
+    rsync
   ];
 }

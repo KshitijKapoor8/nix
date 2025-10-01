@@ -99,6 +99,7 @@
       "dialout"
       "video"
       "input"
+      "fuse"
     ];
     packages = with pkgs; [
       #  thunderbird
@@ -130,6 +131,9 @@
       material-design-icons
     ];
   };
+
+  # programs.ssh.startAgent = true;
+  programs.fuse.userAllowOther = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

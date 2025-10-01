@@ -1,5 +1,7 @@
 { pkgs, inputs, ... }:
 {
+  imports = [ ./stylix.nix ];
+
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -30,6 +32,6 @@
     ];
   };
 
-  imports = [ ./stylix.nix ];
-
+  services.openssh.enable = true;
+  networking.firewall.allowedTCPPorts = [ 22 ];
 }

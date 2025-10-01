@@ -76,8 +76,9 @@ in
 
       decoration = {
         dim_inactive = true;
-        inactive_opacity = 0.9;
-        rounding = 3;
+        dim_strength = 0.2;
+        inactive_opacity = 0.8;
+        rounding = 6;
       };
 
       misc = {
