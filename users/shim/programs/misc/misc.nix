@@ -47,5 +47,6 @@
     code-cursor
     minicom
     wl-clipboard
+    vscode
   ];
 }
