@@ -23,6 +23,11 @@
     enable = true;
     userName = "KshitijKapoor8";
     userEmail = "kshitijkapoor8@gmail.com";
+    lfs.enable = true;
+
+    extraConfig = {
+      core.editor = "nvim";
+    };
   };
 
   imports = [
@@ -30,9 +35,9 @@
     ./programs/misc/misc.nix
     ./programs/terms/term.nix
     ./programs/starship/starship.nix
-    # ./programs/nvim/nvim.nix
-    # ./programs/nvim/nixvim.nix
+
     ./programs/browsers
+    ./programs/tmux
 
     ./de/waybar
     ./de/sway/sway.nix

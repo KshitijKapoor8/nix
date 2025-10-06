@@ -33,7 +33,7 @@
     man-pages
     pavucontrol
     scons
-    godot_4
+    # godot_4
     rustc
     esp-generate
     brightnessctl
@@ -48,5 +48,11 @@
     minicom
     wl-clipboard
     vscode
+    nmap
+    nfs-utils
+    bear
+    gum
+    zathura
+    godot_4-mono
   ];
 }

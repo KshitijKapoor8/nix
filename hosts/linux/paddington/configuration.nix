@@ -2,19 +2,27 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../../modules/linux/sway.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../../modules/linux/sway.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.initrd = {
+    supportedFilesystems = [ "nfs" ];
+    kernelModules = [ "nfs" ];
+  };
 
   networking.hostName = "paddington"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -78,7 +86,7 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-  virtualisation.docker = { 
+  virtualisation.docker = {
     enable = true;
   };
 
@@ -86,7 +94,12 @@
   users.users.shim = {
     isNormalUser = true;
     description = "shim";
-    extraGroups = [ "networkmanager" "wheel" "docker" "kvm" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "kvm"
+    ];
     packages = with pkgs; [ ];
   };
 
@@ -96,22 +109,44 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     qemu
+    protonup
+    mangohud
   ];
+
+  programs.gamemode.enable = true;
+
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+
+  services.nfs.server.enable = true;
+  services.nfs.server.mountdPort = 4000;
+  services.nfs.server.lockdPort = 4001;
+  services.nfs.server.statdPort = 4002;
+  services.nfs.server.exports = ''
+    /home/shim/aos-lab2-srv/ *(rw,sync,no_subtree_check,no_root_squash)
+  '';
 
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
 
     extraPackages = with pkgs; [
-      mesa.drivers
-      libva libva-utils
-      vulkan-loader vulkan-tools
+      mesa
+      libva
+      libva-utils
+      vulkan-loader
+      vulkan-tools
     ];
 
     extraPackages32 = with pkgs; [
@@ -133,8 +168,22 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [
+    111
+    2049
+    4000
+    4001
+    4002
+    20048
+  ];
+  networking.firewall.allowedUDPPorts = [
+    111
+    2049
+    4000
+    4001
+    4002
+    20048
+  ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
