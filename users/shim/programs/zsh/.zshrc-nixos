@@ -66,6 +66,8 @@ alias ..="cd .."
 alias n="sudo nixos-rebuild switch --flake ~/nix#nixos"
 alias nd="nix develop --command $SHELL -i"
 alias nl="nix run ."
+alias nv="nix run ~/vim-nix/"
+
 
 # Shell integrations
 eval "$(fzf --zsh)"

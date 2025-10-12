@@ -103,6 +103,10 @@ in
         "7, monitor:DP-1, persistent:true"
         "8, monitor:DP-3, persistent:true"
       ];
+
+      windowrulev2 = [
+        "opacity 1.0 override,class:^(zen-twilight)$,title:^(.*YouTube.*)$"
+      ];
     };
   };
 }

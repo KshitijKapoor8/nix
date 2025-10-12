@@ -54,5 +54,9 @@
     gum
     zathura
     godot_4-mono
+    file
+    xxd
+    btop
+    # ida-free
   ];
 }
