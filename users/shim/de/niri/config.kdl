@@ -1,0 +1,92 @@
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            options "compose:ralt,ctrl:nocaps"
+        }
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse { }
+}
+
+output "eDP-1" {
+    scale 1.0
+    variable-refresh-rate
+}
+
+layout {
+    preset-column-widths {
+        proportion 0.25
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 0.75
+    }
+}
+
+cursor {
+    hide-when-typing
+    xcursor-size 30
+    xcursor-theme "Adwaita"
+}
+
+binds {
+    Mod+Q { close-window; }
+    Mod+T hotkey-overlay-title="Spawn Terminal" { spawn "ghostty"; }
+    Mod+Shift+M hotkey-overlay-title="Lock Session" { spawn "loginctl" "lock-session"; }
+
+    Mod+H { focus-column-left; }
+    Mod+J { focus-window-down; }
+    Mod+K { focus-window-up; }
+    Mod+L { focus-column-right; }
+
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+J { move-window-down; }
+    Mod+Shift+K { move-window-up; }
+    Mod+Shift+L { move-column-right; }
+
+    Mod+F { switch-focus-between-floating-and-tiling; }
+    Mod+Shift+F { fullscreen-window; }
+
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    Mod+R { switch-preset-column-width; }
+    Mod+A { set-column-width "25%"; }
+    Mod+S { set-column-width "33.333%"; }
+    Mod+D { set-column-width "50%"; }
+    Mod+W { set-column-width "66.666%"; }
+    Mod+E { set-column-width "75%"; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    Mod+P { screenshot; }
+
+    Mod+BracketLeft { focus-column-first; }
+    Mod+BracketRight { focus-column-last; }
+
+    Mod+Shift+P { power-off-monitors; }
+}

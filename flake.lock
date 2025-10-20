@@ -1108,11 +1108,11 @@
         "pre-commit-hooks": "pre-commit-hooks_3"
       },
       "locked": {
-        "lastModified": 1759849186,
-        "narHash": "sha256-tEBwEx7hOLHsHM3NPkXZ3k9KRL63vhAkObf7fWZbJqY=",
+        "lastModified": 1760926587,
+        "narHash": "sha256-AmgAizbZaHyKik+UzVdpbiH/zebt8I9zaR9sNZVm34M=",
         "owner": "KshitijKapoor8",
         "repo": "vim-nix",
-        "rev": "c97ea912a2e3f8278b9097d0111fbcd4574189bd",
+        "rev": "96561122104e8ed9a2a3d92ba56478b09f44aa72",
         "type": "github"
       },
       "original": {

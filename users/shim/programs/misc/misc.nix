@@ -58,5 +58,7 @@
     xxd
     btop
     # ida-free
+    can-utils
+    SDL2
   ];
 }

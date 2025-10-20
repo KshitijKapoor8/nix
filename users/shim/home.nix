@@ -42,5 +42,6 @@
     ./de/waybar
     ./de/sway/sway.nix
     ./de/hyprland/hyprland.nix
+    ./de/niri
   ];
 }
