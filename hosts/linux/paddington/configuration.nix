@@ -184,6 +184,7 @@
     4002
     20048
   ];
+
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

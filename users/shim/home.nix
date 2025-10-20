@@ -36,10 +36,13 @@
     ./programs/terms/term.nix
     ./programs/starship/starship.nix
 
+    ./programs/godot
+
     ./programs/browsers
     ./programs/tmux
 
     ./de/waybar
+    ./de/quickshell
     ./de/sway/sway.nix
     ./de/hyprland/hyprland.nix
     ./de/niri

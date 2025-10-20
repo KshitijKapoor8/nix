@@ -135,6 +135,25 @@
   # programs.ssh.startAgent = true;
   programs.fuse.userAllowOther = true;
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      stdenv.cc.cc.lib
+      zlib
+      libGL
+      xorg.libX11
+      xorg.libXcursor
+      xorg.libXrandr
+      xorg.libXinerama
+      xorg.libXi
+      libxkbcommon
+      wayland
+      alsa-lib
+      pulseaudio
+      SDL2
+    ];
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

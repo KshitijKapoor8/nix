@@ -380,6 +380,22 @@
         "type": "github"
       }
     },
+    "godot_4-mono-4-3": {
+      "locked": {
+        "lastModified": 1741447020,
+        "narHash": "sha256-I2HaPyLqSMJXAvs80pofKifxlFiluXS+K6nm/4RLpPA=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "57cb153e9ff88c8483f81c97a75260a00333b50a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "57cb153e9ff88c8483f81c97a75260a00333b50a",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -1260,6 +1276,7 @@
     },
     "root": {
       "inputs": {
+        "godot_4-mono-4-3": "godot_4-mono-4-3",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",

@@ -32,6 +32,8 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    godot_4-mono-4-3.url = "github:NixOS/nixpkgs/57cb153e9ff88c8483f81c97a75260a00333b50a";
   };
 
   outputs =

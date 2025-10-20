@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
     ripgrep
@@ -33,7 +33,6 @@
     man-pages
     pavucontrol
     scons
-    # godot_4
     rustc
     esp-generate
     brightnessctl
@@ -53,10 +52,11 @@
     bear
     gum
     zathura
-    godot_4-mono
     file
     xxd
     btop
+    swaynotificationcenter
+    # godot-export-templates
     # ida-free
     can-utils
     SDL2

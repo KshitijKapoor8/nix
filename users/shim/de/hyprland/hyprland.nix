@@ -13,17 +13,14 @@ let
   menu = "wofi --show drun";
   browser = "zen-twilight";
   files = "nautilus";
-
-  left = "h";
-  down = "j";
-  up = "k";
-  right = "l";
 in
 {
   imports = [ ./keybinds.nix ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+
       monitor =
         if hostname == "nixos" then
           [
@@ -104,8 +101,13 @@ in
         "8, monitor:DP-3, persistent:true"
       ];
 
+      windowrule = [
+        "move 1900 40, class:^(?i).*pavucontrol*$"
+      ];
+
       windowrulev2 = [
-        "opacity 1.0 override,class:^(zen-twilight)$,title:^(.*YouTube.*)$"
+        "float, class:^(?i).*pavucontrol*$"
+        "opacity 1.0 override 1.0 override, title:^(?i).*youtube.*$"
       ];
     };
   };
