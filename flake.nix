@@ -34,6 +34,11 @@
     };
 
     godot_4-mono-4-3.url = "github:NixOS/nixpkgs/57cb153e9ff88c8483f81c97a75260a00333b50a";
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -80,6 +85,7 @@
                   imports = [
                     ./users/${username}/home.nix
                     inputs.zen-browser.homeModules.twilight
+                    inputs.niri.homeModules.niri
                   ];
                   programs.zen-browser.enable = true;
                 };

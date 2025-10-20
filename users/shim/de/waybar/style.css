@@ -1,5 +1,6 @@
+@import url("./custom-colors.css");
+
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
     font-family: JetBrainsMono;
     font-weight: 400;
     font-size: 12px;
@@ -8,11 +9,12 @@
 
 window#waybar {
     background-color: #000000;
-    color: #ffffff;
+    color: white;
     border-radius: 0px;
 }
 
 #waybar>box {
+    margin: 4px 8px 0 8px;
     background-color: #000000;
     border-radius: 0px;
 }
@@ -34,7 +36,7 @@ button:hover {
 
 #workspaces button {
     padding: 0 5px;
-    color: #dcd7ba;
+    color: white;
     background-color: transparent;
 }
 
@@ -71,7 +73,7 @@ button:hover {
 #window,
 
 #workspaces {
-    color: #dcd7ba;
+    color: white;
     padding: 1px 1px 1px 1px;
 
 }
@@ -82,7 +84,7 @@ button:hover {
 }
 
 #clock {
-    color: #dcd7ba;
+    color: white;
     margin-right: 5px;
 }
 
@@ -96,7 +98,7 @@ label:focus {
 }
 
 #memory {
-    color: #dcd7ba;
+    color: white;
     padding: 1px 9px 1px 5px;
 }
 
@@ -109,7 +111,7 @@ label:focus {
 }
 
 #pulseaudio {
-    color: #dcd7ba;
+    color: white;
 }
 
 #pulseaudio.muted {
@@ -131,11 +133,11 @@ label:focus {
 }
 
 #cpu {
-    color: #dcd7ba;
+    color: white;
     margin-right: 5px;
 }
 
 #tray-expander {
-    color: #dcd7ba;
+    color: white;
     margin-right: 5px;
 }

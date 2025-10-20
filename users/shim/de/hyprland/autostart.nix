@@ -3,7 +3,7 @@
   wayland.windowManager.hyprland.settings = {
     exec = [
       "pkill -SIGUSR2 waybar || waybar"
-      "qs -c default"
+      "swww-daemon"
     ];
   };
 }

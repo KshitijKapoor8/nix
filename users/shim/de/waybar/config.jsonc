@@ -3,18 +3,27 @@
     "height": 28,
     "spacing": 4,
     "modules-left": [
+        "custom/logo",
+        "hyprland/window",
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "clock"
     ],
     "modules-right": [
         "group/tray-expander",
         "pulseaudio",
         "memory",
-        "cpu"
+        "cpu",
+        "clock"
     ],
-    // Modules configuration
+    "custom/logo": {
+        "format": "❄️",
+        "tooltip": "Nix"
+    },
+    "hyprland/window": {
+        "separate-outputs": true,
+        "max-length": 30
+    },
     "hyprland/workspaces": {
         "format": "{name}",
         "persistent-workspaces": {
@@ -40,7 +49,6 @@
         "icon-size": 14,
         "spacing": 4
    },
-
    "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",

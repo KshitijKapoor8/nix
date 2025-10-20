@@ -57,6 +57,8 @@ in
           "$mod, f, togglefloating"
           "$mod shift, f, fullscreen"
 
+          "$mod shift, w, exec, ~/nix/scripts/swww-cycle.sh"
+
           ", XF86MonBrightnessUp, exec, brightnessctl set +10%"
           ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
 
